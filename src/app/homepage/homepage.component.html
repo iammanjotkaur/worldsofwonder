@@ -1,0 +1,53 @@
+    <!-- <p>homepage works!</p> -->
+    <!-- <button (click)="fetchImage()">Fetch images</button> -->
+    <!-- <div *ngFor= "let image of images ">
+        <img src="{{image.imageURL}}" alt="imagefromgoogle">
+    </div> -->
+   
+    <div class="search">
+        <div class="search-monument">
+            <!-- <img src="../assets/240_F_109467785_eeYWH2tY4CnkDl9BtuYO6hWjk7hH0okU.jpg" alt="search icon"> -->
+            <!-- <i class="fa fa-search" aria-hidden="true"></i> -->
+            <input class="form-control" type="text" name="search" [(ngModel)]=" searchQuery" autocomplete="off" style="font-family:Arial, FontAwesome" placeholder="&#xF002; Search by Name">
+        </div>
+        <div class="Information">
+            <div class="Likes">
+                <label for="totalLikes">Total Likes:</label>
+                {{totalLikes}}
+            </div>
+            <div class="apihits">
+                <label for="apiHits">API Hits:</label>
+                {{apiHits}} 
+            </div>
+        </div>
+        <div class="sort-monument">
+            <label for="sorting" class="sort-monument">Sort By:</label>
+            <select (change)=onSelect($event) class="dropdown">
+            <option *ngFor="let x of names" [value]="x" >{{x}} </option>
+            </select>
+        </div>
+    </div>
+    <div class="image-container">
+        <div *ngFor="let image of images | filter:searchQuery | orderBy: feature:true,let flag=index;" class="image-box">
+            <div >
+                <img src="{{image.imageURL}}" alt="imagefromapi" style="width: 100%;" class="monument">
+                <div class="transbox">
+                    <div class="content">  
+                        <p style="display:inline; float: left;">Ratings: {{image.ratings}}</p>
+                        <p style="display:inline; float:right; ">{{image.place}}</p>
+                    </div>
+                    
+                </div>
+                <div class="overlay" >
+                    <div class="description">{{image.description}}</div>
+                    <i (click)="myFunction(this,image.id)" class="fa fa-thumbs-up">{{image.likes}}</i>
+                    
+                    
+                </div>
+            </div>
+         </div>
+    </div>
+    
+    
+
+
