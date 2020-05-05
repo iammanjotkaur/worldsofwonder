@@ -4,8 +4,7 @@ import { HttpClientModule } from '@angular/common/http';
 import {FormsModule} from '@angular/forms';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { Ng2OrderModule } from 'ng2-order-pipe';
-import { NbEvaIconsModule } from '@nebular/eva-icons';
-import { NbIconModule } from '@nebular/theme';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -17,7 +16,7 @@ import { LoadImagesService } from './load-images.service';
 @NgModule({
   declarations: [
     AppComponent,
-    HomepageComponent
+    HomepageComponent,
   ],
   imports: [
     BrowserModule,
@@ -26,8 +25,7 @@ import { LoadImagesService } from './load-images.service';
     FormsModule,
     Ng2SearchPipeModule,
     Ng2OrderModule,
-    NbEvaIconsModule,
-    NbIconModule,
+   BrowserAnimationsModule,
 ],
   providers: [LoadImagesService],
   bootstrap: [AppComponent]

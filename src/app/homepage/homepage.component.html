@@ -1,53 +1,104 @@
-    <!-- <p>homepage works!</p> -->
-    <!-- <button (click)="fetchImage()">Fetch images</button> -->
-    <!-- <div *ngFor= "let image of images ">
+    <!-- <p>homepage works!</p>
+    <button (click)="fetchImage()">Fetch images</button>
+    <div *ngFor= "let image of details ">
         <img src="{{image.imageURL}}" alt="imagefromgoogle">
     </div> -->
+   <div class="worldsOfWonder">
+
+       <div class="search">
+           <div class="search-monument">
+               <input class="form-control" type="text" name="search" [(ngModel)]=" searchQuery" autocomplete="off" style="font-family:Arial, FontAwesome" placeholder="&#xF002; Search by Name">
+           </div>
+           <div class="Information">
+               <div class="Likes">
+                   <label for="totalLikes"><b>Total Likes:</b></label>
+                   {{totalLikes}}
+               </div>
+               <div class="apihits">
+                   <label for="apiHits"><b>API Hits:</b></label>
+                   {{apiHits}} 
+               </div>
+           </div>
+           <div class="sort-monument">
+               <div class="sortLabel">
+                   <label for="sorting" >Sort By:</label>
+               </div>
+               
+               <select (change)=onSelect($event) class="dropdown">
+               <option *ngFor="let x of names" [value]="x" >{{x}} </option>
+               </select>
+           </div>
+       </div>
+       <div class="image-container">
+         
+           <div *ngFor="let image of details | filter:searchQuery | orderBy: feature,let flag=index;  " class="image-box">
+               <div *ngIf="!image" class="errorMessage">
+                   <p >No Monuments Found</p>
+               </div>
+                   <div>
+                
+                       <img src="{{image.imageURL}}" alt="imagefromapi" style="width: 100%;" class="monument">
+                       <div class="transbox">
+                           <div class="content">  
+                               <div class="Ratings">
+                                   <span class="ratingsTitle" >Ratings: </span>
+                                   <span class="score">
+                                       
+                                       <div class="score-wrap">
+                                            <span class="stars-active"  [style.width.%]="image.ratings / 0.05">
+                                               <i class="fa fa-star fa-2x" aria-hidden="true"></i>
+                                               <i class="fa fa-star fa-2x" aria-hidden="true"></i>
+                                               <i class="fa fa-star fa-2x" aria-hidden="true"></i>
+                                               <i class="fa fa-star fa-2x" aria-hidden="true"></i>
+                                               <i class="fa fa-star fa-2x" aria-hidden="true"></i>
+                                            </span>
+                                           <span class="stars-inactive">
+                                               <i class="fa fa-star fa-2x" aria-hidden="true"></i>
+                                               <i class="fa fa-star fa-2x" aria-hidden="true"></i>
+                                               <i class="fa fa-star fa-2x" aria-hidden="true"></i>
+                                               <i class="fa fa-star fa-2x" aria-hidden="true"></i>
+                                               <i class="fa fa-star fa-2x" aria-hidden="true"></i>
+                                            </span>
+                                       </div>
+                                   </span>
    
-    <div class="search">
-        <div class="search-monument">
-            <!-- <img src="../assets/240_F_109467785_eeYWH2tY4CnkDl9BtuYO6hWjk7hH0okU.jpg" alt="search icon"> -->
-            <!-- <i class="fa fa-search" aria-hidden="true"></i> -->
-            <input class="form-control" type="text" name="search" [(ngModel)]=" searchQuery" autocomplete="off" style="font-family:Arial, FontAwesome" placeholder="&#xF002; Search by Name">
-        </div>
-        <div class="Information">
-            <div class="Likes">
-                <label for="totalLikes">Total Likes:</label>
-                {{totalLikes}}
+   
+                               </div>
+   
+                             
+                               <div class="placeName">
+   
+                                   <p style="display:inline;  ">{{image.place}}</p>
+                               </div>
+                           </div>
+                       </div>
+                       <div class="overlay">
+                           <div class="description">
+                               <p>{{image.description}}</p>
+   
+                           </div>
+                       
+                           <div class="likeButton">
+                               <i class = "fa fa-heart "  (click)="toggleLikeState(this,image.id)"  size="large" tappable [ngClass]="{'active': details[flag].isLiked}"></i>
+                            
+                               <span class="numberOfLikes">{{details[flag].likes}}</span> 
+                           </div>
+                             
+                       </div>
+                   </div>
+                   
+              
+           
             </div>
-            <div class="apihits">
-                <label for="apiHits">API Hits:</label>
-                {{apiHits}} 
-            </div>
-        </div>
-        <div class="sort-monument">
-            <label for="sorting" class="sort-monument">Sort By:</label>
-            <select (change)=onSelect($event) class="dropdown">
-            <option *ngFor="let x of names" [value]="x" >{{x}} </option>
-            </select>
-        </div>
-    </div>
-    <div class="image-container">
-        <div *ngFor="let image of images | filter:searchQuery | orderBy: feature:true,let flag=index;" class="image-box">
-            <div >
-                <img src="{{image.imageURL}}" alt="imagefromapi" style="width: 100%;" class="monument">
-                <div class="transbox">
-                    <div class="content">  
-                        <p style="display:inline; float: left;">Ratings: {{image.ratings}}</p>
-                        <p style="display:inline; float:right; ">{{image.place}}</p>
-                    </div>
-                    
-                </div>
-                <div class="overlay" >
-                    <div class="description">{{image.description}}</div>
-                    <i (click)="myFunction(this,image.id)" class="fa fa-thumbs-up">{{image.likes}}</i>
-                    
-                    
-                </div>
-            </div>
-         </div>
-    </div>
-    
-    
+           
+          
+           
+           
+           
+            
+       </div>
+       
 
+   
 
+   </div>   

@@ -1,8 +1,16 @@
+/* body {
+  background-color: purple;
+} */
+.worldsOfWonder {
+  width: 100%;
+    height: 100%;
+  /* background-color: pink; */
+  overflow-x: hidden;
+}
 .search {
     background-color: #e9e9e9;
     display: flex;
     justify-content: space-around;
-    
 }
 
 .search input[type=text] {
@@ -45,18 +53,27 @@
   .image-container {
     
     /* background-color: tomato; */
-    /* display: flex; */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
   }
 .image-box {
     border: 1px solid #ddd;
+    /* border: 1px solid #e74c3c; */
     border-radius: 10px;
+    flex: 1 0 calc(48% - 20px);
+    box-sizing: border-box;
+    margin: 8px;
     /* flex: 100%; */
     /* padding: 5px; */
-    width: 47.5%;
-    float: left;
+    width: 100%-70px;
+    /* float: left; */
     /* background-color: yellow; */
     margin: 20px;
+    /* margin-top: 10px ;
+    margin-bottom: 10px; */
     position: relative;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     /* margin-top: 30px; */
   }
   .transbox{
@@ -75,7 +92,7 @@
     color: #000000;
   }
   .image-box:hover .overlay{
-      opacity: 0.5;
+      opacity: 0.9; 
   }
   .overlay {
     position: absolute;
@@ -87,31 +104,125 @@
     width: 100%;
     opacity: 0;
     transition: .5s ease;
-    background-color: rgba(255, 255, 255, 0.7);
+    
+    background-color: rgba(255, 255, 255, 1);
   }
 .description {
     color:black;
-    font-size: 20px;
+    /* font-size: 20px; */
+    /* background-color: yellowgreen; */
+    font-family: 'Source Serif Pro', serif;
+    width: 95%;
     position: absolute;
-    top: 50%;
+    top: 45%;
     left: 50%;
+    word-wrap: break-word;
     -webkit-transform: translate(-50%, -50%);
     -ms-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
-    text-align: center;
+    text-align: justify;
     font-weight: bold;
   }
+  .sortLabel {
+    font-size: 17px;
+    font-weight: bold;
+    /* background-color: rgb(255, 255, 255); */
+    display: inline;
+    /* padding: 5%; */
+    padding-top: 5%;
+    padding-bottom: 5%;
+    padding-right: 0;
+    border: none;
+    margin-right: 0; 
+    margin-left: 0;
+  }
   .fa {
-    font-size: 20px;
+    font-size: 30px;
     cursor: pointer;
     user-select: none;
   }
-  .fa:hover {
+  /* .fa:hover {
     color: darkblue;
+  } */
+  .fa-heart.active {
+    color: red;
+  }
+  .likeButton {
+    position: relative;
+    left: 85%;
+    top: 2%;
+  }
+  .numberOfLikes {
+    font-size: 30px;
+    position: relative;
+    left: 1%;
+  }
+  .errorMessage {
+      font-size:xx-large;
+      color: red;
+      font-weight: bold;
+      position: absolute;
+      top: 50%;
+      left: 50%;
   }
 
 
-@media only screen and (max-width: 600px) {
+
+
+  .score {
+    display: inline;
+    font-size: 10px;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .score-wrap {
+    display: inline-block;
+    position: relative;
+    height: 10px;
+  }
+  
+  .score .stars-active {
+    color: red;
+    position: relative;
+    z-index: 5;
+    display: inline-block;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+  
+  .score .stars-inactive {
+    color: black;
+    position: absolute;
+    top: 0;
+    left: 0;
+    -webkit-text-stroke: initial;
+    /* overflow: hidden; */
+  }
+  .content {
+    display: flex;
+    flex-direction: row;
+    /* position: relative; */
+  }
+  .Ratings {
+    margin: auto;
+    flex: 1 0 calc(48% - 20px);
+    
+  }
+  .placeName {
+    /* float: right; */
+    font-size: 20px;
+    margin: auto;
+   
+  }
+  .ratingsTitle{
+    display:inline;
+    font-size: 20px;
+    padding-right: 1%;
+  }
+
+
+@media only screen and (max-width: 1000px) {
     .search {
       background-color: lightblue;
       display: flex;
@@ -142,9 +253,23 @@
         width: 80%;
         display: inline;
       }
+      .sortLabel {
+        font-size: 17px;
+        font-weight: bold;
+        /* background-color: rgb(255, 255, 255); */
+        display: inline;
+        /* padding: 5%; */
+        padding-top: 5%;
+        padding-bottom: 5%;
+        padding-right: 0;
+        border: none;
+        margin-right: 0; 
+        margin-left: 0;
+      }
       .dropdown {
         width: 70%;
       } 
+    
       .image-container {
     
         /* background-color: tomato; */
@@ -158,15 +283,18 @@
         border: 1px solid #ddd;
         border-radius: 10px;
         /* background-color: yellow; */
-        left: 20%;
-         flex: 100%; 
+        /* left: 20%; */
+        flex: 1 0 calc(48% - 20px);
         /* padding: 5px; */
-        width: 50;
+        width: 100%;
         /* float: center; */
         /* background-color: yellow; */
         margin-top: 10px ;
         margin-bottom: 10px;
+        margin-left: 0px;
+        margin-right: 0px;
         position: relative;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
         /* margin-top: 30px; */
       }
       .transbox{
@@ -192,7 +320,7 @@
           font-size: xx-small;
       }
       .image-box:hover .overlay{
-        opacity: 0.5;
+        opacity: 0.9;
     }
     .overlay {
       position: absolute;
@@ -208,9 +336,11 @@
     }
   .description {
       color:black;
-      font-size: 20%;
+      /* font-size: 20%; */
+      font-family: 'Dosis', sans-serif;
       font-weight: bolder;
       position: absolute;
+      width: 95%;
       top: 50%;
       left: 50%;
       -webkit-transform: translate(-50%, -50%);
@@ -224,18 +354,86 @@
       cursor: pointer;
       user-select: none;
     }
-    .fa:hover {
+    /* .fa:hover {
       color: darkblue;
+    } */
+    .fa-heart.active {
+      color: red;
     }
-    .Likes {
+    .likeButton {
+      position: relative;
+      left: 85%;
+      top: 5%;
+    }
+    .numberOfLikes {
+      font-size: 20px;
+      position: relative;
+      
+    }
+    /* .Likes {
         padding-left: 10px;
         padding-right: 10px;
   
-    }
+    } */
     .apihits {
       padding-left: 10px;
       padding-right: 10px;
     }
+
+  .score {
+    display: inline;
+    font-size: 10px;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .score-wrap {
+    display: inline-block;
+    position: relative;
+    height: 1px;
+  }
+  
+  .score .stars-active {
+    color: red;
+    position: relative;
+    z-index: 5;
+    display: inline-block;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+  
+  .score .stars-inactive {
+    color: black;
+    position: absolute;
+    top: 0;
+    left: 0;
+    -webkit-text-stroke: initial;
+    /* overflow: hidden; */
+  }
+  .content {
+    display: flex;
+    flex-direction: row;
+    /* position: relative; */
+  }
+  .Ratings {
+    margin: auto;
+    flex: 1 0 calc(48% - 20px);
+    
+  }
+  .placeName {
+    /* float: right; */
+    font-size: 20px;
+    margin-right: 2%;
+   
+  }
+  .ratingsTitle{
+    display:inline;
+    font-size: x-small;
+    padding-right: 1%;
+ 
+  }
+
+
   }
 
   

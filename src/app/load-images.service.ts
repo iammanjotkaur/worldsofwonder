@@ -15,4 +15,8 @@ export class LoadImagesService {
   return data;
 
   }
+  // fetchImages(){
+  //   return this.http.get('https://www.mocky.io/v2/5bdd28dd32000075008c6227').pipe(map(res => [res, 'working'])); 
+  // }
+
 }
